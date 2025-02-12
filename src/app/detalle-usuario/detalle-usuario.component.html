@@ -1,4 +1,4 @@
-<div *ngIf="usuario">
+<div *ngIf="usuario$ | async as usuario">
   <h2>{{ usuario.name }}</h2>
   <p><strong>Correo:</strong> {{ usuario.email }}</p>
   <p><strong>Username:</strong> {{ usuario.username }}</p>

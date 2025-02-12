@@ -4,12 +4,12 @@ import { User } from '../model/user';
 import { UsersService } from '../services/users.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-usuarios',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './usuarios.component.html',
   styleUrl: './usuarios.component.css',
 })

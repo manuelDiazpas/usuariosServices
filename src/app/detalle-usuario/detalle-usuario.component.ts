@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user';
 import { UsersService } from '../services/users.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-detalle-usuario',
@@ -13,17 +14,16 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './detalle-usuario.component.css',
 })
 export class DetalleUsuarioComponent implements OnInit {
-  usuario: User | undefined;
+  usuario$: Observable<User> = new Observable<User>();
 
   constructor(
     private usuariosService: UsersService,
+    private router: Router,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.params['id']);
-    this.usuariosService.getId(id).subscribe((usuario) => {
-      this.usuario = usuario;
-    });
+    this.usuario$ = this.usuariosService.getId(id);
   }
 }

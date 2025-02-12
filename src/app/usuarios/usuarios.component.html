@@ -1,0 +1,12 @@
+<ul *ngFor="let usuario of users$ | async">
+  <a>
+    <li>{{ usuario.name }}</li>
+    <li>{{ usuario.email }}</li>
+    <li>{{ usuario.phone }}</li>
+    <li>
+      {{ usuario.address.street }}, {{ usuario.address.city }},
+      {{ usuario.address.suite }}
+    </li>
+    <button (click)="verDetalleUsuario(usuario.id)">Detalle</button>
+  </a>
+</ul>

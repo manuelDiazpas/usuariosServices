@@ -1,0 +1,10 @@
+<div *ngIf="usuario">
+  <h2>{{ usuario.name }}</h2>
+  <p><strong>Correo:</strong> {{ usuario.email }}</p>
+  <p><strong>Username:</strong> {{ usuario.username }}</p>
+
+  <h3>Dirección:</h3>
+  <p><strong>Calle:</strong> {{ usuario.address.street }}</p>
+  <p><strong>Suite:</strong> {{ usuario.address.suite }}</p>
+  <p><strong>Ciudad:</strong> {{ usuario.address.city }}</p>
+</div>
